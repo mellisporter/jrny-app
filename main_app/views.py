@@ -1,8 +1,14 @@
 from django.shortcuts import render # allows us to render different views
 from django.http import HttpResponse # allows us to get repsonses to Http Requests
 from .models import Workout
+from django.views.generic.edit import CreateView
 
-# Models
+# CBVs
+class WorkoutCreate(CreateView):
+    model= Workout
+    fields= '__all__'
+    success_url= '/workouts/'
+
 
 
 #defines our home view
