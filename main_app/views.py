@@ -5,3 +5,6 @@ from django.http import HttpResponse # allows us to get repsonses to Http Reques
 def home(reqest):
     return HttpResponse('<h1>Welcome to JRNY</h1>')
 
+def about(request):
+    return HttpResponse('<h1>About JRNY</h1>')
+
