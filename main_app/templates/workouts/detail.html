@@ -29,15 +29,14 @@
           <th>Time</th>
           <th>Notes</th>
         </tr>
-      </thead>
+      </thead><br/>
+      <h6>Workout Log</h6>
       <tbody>
-        {% for history in workout.history_set.all %}
         <tr>
           <td>{{history.date}}</td>
           <td>{{history.time}}</td>
           <td>{{history.notes}}</td>
         </tr>
-        {% endfor %}
       </tbody>
     </table>
   </div>
