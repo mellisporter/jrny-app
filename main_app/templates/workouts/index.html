@@ -4,7 +4,7 @@
 
 {% for workout in workouts %}
 <div class="card">
-    <a href="/workouts/{{workout.id}}">
+    <a href="{% url 'detail' workout.id %}">
   <div class="card-content">
     <span class="card-title">{{ workout.name }}</span>
     <p>Description: {{ workout.description }}</p>
