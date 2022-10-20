@@ -3,7 +3,7 @@ from django.http import HttpResponse # allows us to get repsonses to Http Reques
 from .models import Workout, Exercise 
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # allows us to use Create and Update functions
-
+from .forms import HistoryForm # takes the form from the history model to embed on our detail page
 # CBVs
 class WorkoutCreate(CreateView):
     model= Workout
@@ -49,7 +49,8 @@ def workouts_index(request):
 
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
-    return render(request, 'workouts/detail.html' , {'workout' : workout} )
+    history_form= HistoryForm() # history form embeds in the detail
+    return render(request, 'workouts/detail.html' , {'workout' : workout, 'history_form': history_form} )
 
 def exercises_index(request):
     exercises= Exercise.objects.all()

@@ -18,6 +18,10 @@
     </div>
   </div>
   <div class="col s6">
+    <form method="post">
+        {% csrf_token %} {{ history_form.as_p }}
+        <input type="submit" class="btn" value="Log Workout" />
+      </form>
     <table class="striped">
       <thead>
         <tr>
