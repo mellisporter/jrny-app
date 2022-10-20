@@ -16,10 +16,15 @@ class WorkoutUpdate(UpdateView):
 
 class WorkoutDelete(DeleteView):
     model= Workout
-    success_url= '/workouts'
+    success_url= '/workouts/'
 
 class ExerciseList(ListView):
     model= Exercise
+
+class ExerciseCreate(CreateView):
+    model= Exercise
+    fields= '__all__'
+    success_url= '/exercises/'
 
 
 
