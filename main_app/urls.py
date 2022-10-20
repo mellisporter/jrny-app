@@ -9,4 +9,5 @@ urlpatterns= [
     path('workouts/create/' , views.WorkoutCreate.as_view(), name='workouts_create'), # create workouts path
     path('workouts/<int:pk>/update/' , views.WorkoutUpdate.as_view(), name='workouts_update'),
     path('workouts/<int:pk>/delete', views.WorkoutDelete.as_view(), name= 'workouts_delete'),
+    path('exercises/', views.exercises_index, name='index'),
 ]

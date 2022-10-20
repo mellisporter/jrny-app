@@ -1,6 +1,7 @@
 from django.shortcuts import render # allows us to render different views
 from django.http import HttpResponse # allows us to get repsonses to Http Requests
-from .models import Workout
+from .models import Workout, Exercise 
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # allows us to use Create and Update functions
 
 # CBVs
@@ -16,6 +17,9 @@ class WorkoutUpdate(UpdateView):
 class WorkoutDelete(DeleteView):
     model= Workout
     success_url= '/workouts'
+
+class ExerciseList(ListView):
+    model= Exercise
 
 
 
@@ -33,4 +37,8 @@ def workouts_index(request):
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     return render(request, 'workouts/detail.html' , {'workout' : workout} )
+
+def exercises_index(request):
+    exercises= Exercise.objects.all()
+    return render(request, 'exercises/index.html', {'exercises' : exercises})
 
