@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse # imports reverse functionality
 
 # Create your models here.
 class Workout(models.Model):
@@ -8,3 +9,6 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.name # prints the workout name
+
+    def get_absolute_url(self):
+        return reverse('detail' , kwargs={'workout_id': self.id}) # builds a path string and returns correct path for the detail route

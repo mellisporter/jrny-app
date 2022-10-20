@@ -1,13 +1,21 @@
 from django.shortcuts import render # allows us to render different views
 from django.http import HttpResponse # allows us to get repsonses to Http Requests
 from .models import Workout
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView # allows us to use Create and Update functions
 
 # CBVs
 class WorkoutCreate(CreateView):
     model= Workout
     fields= '__all__'
     success_url= '/workouts/'
+
+class WorkoutUpdate(UpdateView):
+    model= Workout
+    fields= '__all__'
+
+class WorkoutDelete(DeleteView):
+    model= Workout
+    success_url= '/workouts'
 
 
 
