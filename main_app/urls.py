@@ -4,5 +4,5 @@ from . import views #gives our url file access to the views we have defined
 urlpatterns= [
     path('', views.home, name='home'), # our main url path now pulls the home view named home
     path('about/' , views.about, name='about'), # our about path
-    path('index/', views.main_index, name='index'),
+    path('workouts/', views.workout_index, name='index'),
 ]
