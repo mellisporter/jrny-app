@@ -20,3 +20,6 @@ class Exercise(models.Model): # this will be our second model, exercises can be 
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('exercises_detail' , kwargs={'exercise_id': self.id}) # builds a path string and returns correct path for the detail route

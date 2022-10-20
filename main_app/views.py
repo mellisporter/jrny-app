@@ -26,6 +26,14 @@ class ExerciseCreate(CreateView):
     fields= '__all__'
     success_url= '/exercises/'
 
+class ExerciseUpdate(UpdateView):
+    model= Exercise
+    fields= '__all__'
+
+class ExerciseDelete(DeleteView):
+    model= Exercise
+    success_url= '/exercises/'
+
 
 
 #defines our home view
@@ -47,3 +55,6 @@ def exercises_index(request):
     exercises= Exercise.objects.all()
     return render(request, 'exercises/index.html', {'exercises' : exercises})
 
+def exercises_detail(request, exercise_id):
+    exercises= Exercise.objects.get(id=exercise_id)
+    return render(request, 'exercises/detail.html', {'exercise': exercises})
