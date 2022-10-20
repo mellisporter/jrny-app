@@ -8,3 +8,5 @@ def home(request):
 def about(request):
     return render(request, 'about.html') # changed from text to rendering the about template
 
+def main_index(request):
+    return HttpResponse('this is the main index')
