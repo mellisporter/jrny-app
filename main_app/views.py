@@ -6,5 +6,5 @@ def home(reqest):
     return HttpResponse('<h1>Welcome to JRNY</h1>')
 
 def about(request):
-    return HttpResponse('<h1>About JRNY</h1>')
+    return render(request, 'about.html') # changed from text to rendering the about template
 
