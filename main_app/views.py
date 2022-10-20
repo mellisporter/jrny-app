@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render # allows us to render different views
+from django.http import HttpResponse # allows us to get repsonses to Http Requests
 
-# Create your views here.
+#defines our home view
+def home(reqest):
+    return HttpResponse('<h1>Welcome to JRNY</h1>')
+
