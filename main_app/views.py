@@ -1,5 +1,6 @@
 from django.shortcuts import render # allows us to render different views
 from django.http import HttpResponse # allows us to get repsonses to Http Requests
+from .models import Workout
 
 # Models
 
