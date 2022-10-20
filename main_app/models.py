@@ -25,11 +25,12 @@ class Exercise(models.Model): # this will be our second model, exercises can be 
         return reverse('exercises_detail' , kwargs={'exercise_id': self.id}) # builds a path string and returns correct path for the detail route
 
 class History(models.Model):
-    date= models.DateField()
+    date= models.DateField('Workout Date')
     time= models.TimeField()
     notes= models.TextField(max_length=300)
 
     # the history model needs at workout FK
+    # this makes it so the history attaches to a certain workout
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
 
     def __str__(self):
