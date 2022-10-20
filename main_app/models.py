@@ -23,3 +23,14 @@ class Exercise(models.Model): # this will be our second model, exercises can be 
 
     def get_absolute_url(self):
         return reverse('exercises_detail' , kwargs={'exercise_id': self.id}) # builds a path string and returns correct path for the detail route
+
+class History(models.Model):
+    date= models.DateField()
+    time= models.TimeField()
+    notes= models.TextField(max_length=300)
+
+    # the history model needs at workout FK
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Workout comopleted on {self.date}'
