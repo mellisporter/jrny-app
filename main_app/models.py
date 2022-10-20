@@ -35,3 +35,6 @@ class History(models.Model):
 
     def __str__(self):
         return f'Workout comopleted on {self.date}'
+
+    class Meta:
+        ordering= ['-date']

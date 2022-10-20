@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="col s6">
-    <form method="post">
+    <form action="{% url 'add_history' workout.id %}" method="post">
         {% csrf_token %} {{ history_form.as_p }}
         <input type="submit" class="btn" value="Log Workout" />
       </form>

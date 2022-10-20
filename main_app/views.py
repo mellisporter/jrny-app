@@ -1,4 +1,4 @@
-from django.shortcuts import render # allows us to render different views
+from django.shortcuts import render, redirect # allows us to render different views
 from django.http import HttpResponse # allows us to get repsonses to Http Requests
 from .models import Workout, Exercise 
 from django.views.generic import ListView
@@ -59,3 +59,11 @@ def exercises_index(request):
 def exercises_detail(request, exercise_id):
     exercises= Exercise.objects.get(id=exercise_id)
     return render(request, 'exercises/detail.html', {'exercise': exercises})
+
+def add_history(request, workout_id):
+    form= HistoryForm(request.POST)
+    if form.is_valid():
+        new_history= form.save(commit=False)
+        new_history.workout_id = workout_id
+        new_history.save()
+    return redirect('detail' , workout_id=workout_id)

@@ -14,4 +14,5 @@ urlpatterns= [
     path('exercises/create/', views.ExerciseCreate.as_view(), name='exercises_create'),
     path('exercises/<int:pk>/update/' , views.ExerciseUpdate.as_view(), name='exercises_update'),
     path('exercises/<int:pk>/delete/' , views.ExerciseDelete.as_view(), name='exercises_delete'),
+    path('workouts/<int:workout_id>/add_history/', views.add_history, name='add_history'),
 ]
