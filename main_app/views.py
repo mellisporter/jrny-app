@@ -53,7 +53,8 @@ def about(request):
     return render(request, 'about.html') # changed from text to rendering the about template
 
 def workouts_index(request):
-    workouts = Workout.objects.all()
+    # changed from all to filter to match user
+    workouts = Workout.objects.filter(user=request.user)
     return render(request, 'workouts/index.html' , {'workouts': workouts})
 
 def workouts_detail(request, workout_id):
