@@ -7,11 +7,12 @@ from .forms import HistoryForm # takes the form from the history model to embed 
 from django.contrib.auth import login # imports built in login django features
 from django.contrib.auth.forms import UserCreationForm # imports default sign up form
 from django.contrib.auth.decorators import login_required # imports login required decorator!
+from django.contrib.auth.mixins import LoginRequiredMixin # allows users authorization for Class Based Views
 
 
 
 # CBVs
-class WorkoutCreate(CreateView):
+class WorkoutCreate(LoginRequiredMixin, CreateView):
     model= Workout
     fields= ['name' , 'description' , 'length']
     success_url= '/workouts/'
@@ -21,27 +22,27 @@ class WorkoutCreate(CreateView):
         form.instance.user = self.request.user # makes the session user self.request.user
         return super().form_valid(form)
 
-class WorkoutUpdate(UpdateView):
+class WorkoutUpdate(LoginRequiredMixin, UpdateView):
     model= Workout
     fields= '__all__'
 
-class WorkoutDelete(DeleteView):
+class WorkoutDelete(LoginRequiredMixin, DeleteView):
     model= Workout
     success_url= '/workouts/'
 
-class ExerciseList(ListView):
+class ExerciseList(LoginRequiredMixin, ListView):
     model= Exercise
 
-class ExerciseCreate(CreateView):
+class ExerciseCreate(LoginRequiredMixin, CreateView):
     model= Exercise
     fields= '__all__'
     success_url= '/exercises/'
 
-class ExerciseUpdate(UpdateView):
+class ExerciseUpdate(LoginRequiredMixin, UpdateView):
     model= Exercise
     fields= '__all__'
 
-class ExerciseDelete(DeleteView):
+class ExerciseDelete(LoginRequiredMixin, DeleteView):
     model= Exercise
     success_url= '/exercises/'
 
