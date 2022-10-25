@@ -126,3 +126,6 @@ LOGOUT_REDIRECT_URL = '/' # takes logged out user home instead of admin page
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_on_heroku
+django_on_heroku.settings(locals()) # had to change from django_heroku to get it to work
