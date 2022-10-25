@@ -61,8 +61,29 @@
       <h5>No Exercises. Add one to get active.</h5>
       {% endif %}
     </div>
-    <!-- Available exercises will come after this line -->
-  </div>
+<!-- Available exercises will come after this line -->
+<div class="col s6">
+  <h3>Available Exercise</h3>
+  {% if exercises.count %}
+    {% for exercise in exercises.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            <p>{{ exercise.name }}</p>
+          </span>
+        </div>
+        <div class="card-action">
+          <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Add</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h5>{{workout.name}} Already Has All Exercises Available</h5>
+  {% endif %}
+</div>
   
 <script>
 var dateEl = document.getElementById('id_date');
