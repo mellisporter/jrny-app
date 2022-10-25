@@ -7,8 +7,13 @@ from .forms import HistoryForm # takes the form from the history model to embed 
 # CBVs
 class WorkoutCreate(CreateView):
     model= Workout
-    fields= '__all__'
+    fields= ['name' , 'description' , 'length']
     success_url= '/workouts/'
+
+    # if there is a valid workoour form, call this inherited method
+    def form_valid(self, form):
+        form.instance.user = self.request.user # makes the session user self.request.user
+        return super().form_valid(form)
 
 class WorkoutUpdate(UpdateView):
     model= Workout
