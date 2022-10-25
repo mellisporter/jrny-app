@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse # imports reverse functionality
+from django.contrib.auth.models import User # allows us to use built in user models from Django
 
 # Create your models here.
 # need to move exercise here so Workout recognizes it below
@@ -18,7 +19,8 @@ class Workout(models.Model):
     name = models.CharField(max_length= 100)
     description = models.TextField(max_length= 250)
     length = models.CharField(max_length= 100)
-    exercises = models.ManyToManyField(Exercise)
+    exercises = models.ManyToManyField(Exercise) # links exercises to workout model as many to many
+    user = models.ForeignKey(User, on_delete=models.CASCADE) # makes it so when a user is delete, the asociated info does as well
 
     def __str__(self):
         return self.name # prints the workout name
