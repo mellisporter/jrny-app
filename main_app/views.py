@@ -24,7 +24,7 @@ class WorkoutCreate(LoginRequiredMixin, CreateView):
 
 class WorkoutUpdate(LoginRequiredMixin, UpdateView):
     model= Workout
-    fields= '__all__'
+    fields= ['name' , 'description' , 'length']
 
 class WorkoutDelete(LoginRequiredMixin, DeleteView):
     model= Workout
@@ -35,7 +35,7 @@ class ExerciseList(LoginRequiredMixin, ListView):
 
 class ExerciseCreate(LoginRequiredMixin, CreateView):
     model= Exercise
-    fields= '__all__'
+    fields= ['name' , 'description' , 'length']
     success_url= '/exercises/'
 
 class ExerciseUpdate(LoginRequiredMixin, UpdateView):

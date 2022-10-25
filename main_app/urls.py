@@ -17,5 +17,4 @@ urlpatterns= [
     path('workouts/<int:workout_id>/add_history/', views.add_history, name='add_history'),
     path('workouts/<int:workout_id>/assoc_exercise/<int:exercise_id>/' , views.assoc_exercise, name='assoc_exercise'), # allows us to view assoc exercises
     path('accounts/signup/' , views.signup, name= 'signup'),
-    
 ]

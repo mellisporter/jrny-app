@@ -12,20 +12,23 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'jrny/style.css' %}" />
 
   </head>
   <body>
     <header class="navbar-fixed">
-      <nav>
+      <nav class="black">
         <div class="nav-wrapper">
-          <ul>
+          <ul type="none">
             <li>
               <a href="/" class="left brand-logo">JRNY</a>
             </li>
           </ul>
-          <ul class="right">
+          <ul type="none" class="right">
             <li><a href="/about">About</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">My JRNY</a></li>
@@ -35,16 +38,20 @@
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'login' %}"><button>Log In</button></a></li>
             {% endif %}
           </ul>
         </div>
       </nav>
     </header>
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main>{% block content %} {% endblock %}</main>
     <footer class="page-footer">
+      <div class="left">
+        <a href="">L</a>
+        <a href="">GH</a>
+      </div>
       <div class="right">
-        All Rights Reserved, © 2022 MiddleWare Solutions 
+        All Rights Reserved, © 2022 JRNY 
       </div>
     </footer>
   </body>
