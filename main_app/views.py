@@ -50,7 +50,12 @@ def workouts_index(request):
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     history_form= HistoryForm() # history form embeds in the detail
-    return render(request, 'workouts/detail.html' , {'workout' : workout, 'history_form': history_form} )
+    exercises_workout_doesnt_have = Exercise.objects.exclude(id__in = workout.exercises.all().values_list('id')) # excludes exercises already associated with the workout
+    return render(request, 'workouts/detail.html' , {
+        'workout' : workout, 'history_form': history_form,
+        'exercises': exercises_workout_doesnt_have # we want to display unassociated exercises on the page
+        } )
+
 
 def exercises_index(request):
     exercises= Exercise.objects.all()
