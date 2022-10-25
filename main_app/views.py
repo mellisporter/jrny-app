@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView # allow
 from .forms import HistoryForm # takes the form from the history model to embed on our detail page
 from django.contrib.auth import login # imports built in login django features
 from django.contrib.auth.forms import UserCreationForm # imports default sign up form
+from django.contrib.auth.decorators import login_required # imports login required decorator!
+
 
 
 # CBVs
@@ -52,11 +54,13 @@ def home(request):
 def about(request):
     return render(request, 'about.html') # changed from text to rendering the about template
 
+@login_required # uses to the decorator to resctrict access
 def workouts_index(request):
     # changed from all to filter to match user
     workouts = Workout.objects.filter(user=request.user)
     return render(request, 'workouts/index.html' , {'workouts': workouts})
 
+@login_required
 def workouts_detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     history_form= HistoryForm() # history form embeds in the detail
@@ -66,15 +70,17 @@ def workouts_detail(request, workout_id):
         'exercises': exercises_workout_doesnt_have # we want to display unassociated exercises on the page
         } )
 
-
+@login_required
 def exercises_index(request):
     exercises= Exercise.objects.all()
     return render(request, 'exercises/index.html', {'exercises' : exercises})
 
+@login_required
 def exercises_detail(request, exercise_id):
     exercises= Exercise.objects.get(id=exercise_id)
     return render(request, 'exercises/detail.html', {'exercise': exercises})
 
+@login_required
 def add_history(request, workout_id):
     form= HistoryForm(request.POST)
     if form.is_valid():
@@ -83,6 +89,7 @@ def add_history(request, workout_id):
         new_history.save()
     return redirect('detail' , workout_id=workout_id)
 
+@login_required
 def assoc_exercise(request, workout_id, exercise_id):
     Workout.objects.get(id=workout_id).exercises.add(exercise_id)
     return redirect('detail' , workout_id=workout_id)
