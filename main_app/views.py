@@ -4,6 +4,10 @@ from .models import Workout, Exercise
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # allows us to use Create and Update functions
 from .forms import HistoryForm # takes the form from the history model to embed on our detail page
+from django.contrib.auth import login # imports built in login django features
+from django.contrib.auth.forms import UserCreationForm # imports default sign up form
+
+
 # CBVs
 class WorkoutCreate(CreateView):
     model= Workout
@@ -81,3 +85,23 @@ def add_history(request, workout_id):
 def assoc_exercise(request, workout_id, exercise_id):
     Workout.objects.get(id=workout_id).exercises.add(exercise_id)
     return redirect('detail' , workout_id=workout_id)
+
+# i took this straight from the markdown since it says there's no way to really memorize this
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
