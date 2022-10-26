@@ -29,11 +29,11 @@ Django | Python | PostgreSQL | Materialize | CSS | Heroku
 
 ## Wireframe
 
-![Wireframe](https://trello.com/1/cards/6351600a37e18201b203c1e1/attachments/635162ea9661b501d37b0e84/previews/635162eb9661b501d37b0e90/download/Screen_Shot_2022-10-20_at_11.01.44_AM.png)
+![Wireframe](./images/Screen%20Shot%202022-10-20%20at%2011.01.44%20AM.png)
 
 ## ERD
 
-![ERD](https://trello.com/1/cards/634f0571055a2b0181c87f0c/attachments/634f06030844ae020bedec12/previews/634f06040844ae020bedec46/download/Screen_Shot_2022-10-18_at_3.58.23_PM.png)
+![ERD](./images/Screen%20Shot%202022-10-18%20at%203.58.23%20PM.png)
 
 ## Deployment Link
 [Heroku]()
