@@ -45,7 +45,7 @@ button {
   color: white;
   font-size: 90px;
   padding-left: 15px !important;
-  
+  vertical-align: middle !important;
 }
 
 .reg-btn {
@@ -67,4 +67,8 @@ button {
   100% {
     opacity: 1;
   }
+}
+
+button:hover {
+  background-color: rgba(255 ,0, 0, 0.8);
 }

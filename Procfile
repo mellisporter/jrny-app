@@ -1,1 +1,1 @@
-web: gunicorn jrny.wsgi
+web gunicorn jrny.wsgi:application --log-file -
