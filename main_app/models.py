@@ -7,7 +7,7 @@ from django.contrib.auth.models import User # allows us to use built in user mod
 class Exercise(models.Model): # this will be our second model, exercises can be added to workouts
     name= models.CharField(max_length=50)
     description= models.TextField(max_length=300)
-    reps= models.ValueRange
+    reps= models.IntegerField
 
     def __str__(self):
         return self.name

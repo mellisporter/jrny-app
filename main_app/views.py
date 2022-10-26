@@ -35,7 +35,7 @@ class ExerciseList(LoginRequiredMixin, ListView):
 
 class ExerciseCreate(LoginRequiredMixin, CreateView):
     model= Exercise
-    fields= ['name' , 'description' , 'length']
+    fields= '__all__'
     success_url= '/exercises/'
 
 class ExerciseUpdate(LoginRequiredMixin, UpdateView):
