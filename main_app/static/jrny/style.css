@@ -13,9 +13,14 @@ main {
   flex: 1 0 auto;
 }
 
+.main-about {
+  text-align: center;
+}
+
 nav {
   margin-bottom: 0 !important;
   padding-left: 15px;
+
 }
   
 footer {
@@ -41,11 +46,16 @@ button {
   padding: 0 !important;
   margin-top: 0 !important;
   background-image: url("https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  overflow: hidden;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
   color: white;
   font-size: 90px;
-  padding-left: 15px !important;
+  padding-left: 30px !important;
   vertical-align: middle !important;
+  justify-content:center;
+
 }
 
 .reg-btn {
@@ -53,7 +63,7 @@ button {
   width: 150px;
   height: 60px;
   font-size: medium;
-  margin: 0;
+  border-bottom: 150px;
 }
 
 .fade {
@@ -71,4 +81,57 @@ button {
 
 button:hover {
   background-color: rgba(255 ,0, 0, 0.8);
+}
+
+.about-img {
+  height: 350px;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.card {
+  width: 500px;
+}
+
+.card-content {
+  font-size: x-large;
+}
+
+ul > .right {
+  font-size: 100px;
+}
+
+footer > .right {
+  padding-right: 10px;
+}
+
+.signup {
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  margin-left: 20px;
+  border-style: double;
+  border-color: black;
+  justify-content: center;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row !important;
+}
+
+.workout-idx {
+  margin-left: 25px;
+}
+
+.exercise-list {
+  margin-left: 25px;
+
+}
+
+.adjust {
+  margin-top: 75px;
 }

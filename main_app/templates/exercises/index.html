@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<div class="exercise-list">
 <h1>Exercise List</h1>
 {% for exercise in exercises %}
 <div class="card">
@@ -11,6 +12,7 @@
             Description: {{exercise.description}}
         </div>
     </a>
+</div>
 </div>
 {% endfor %}
 
